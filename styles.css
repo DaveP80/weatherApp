@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+.body {
+    justify-content: center;
+    background-color: rgb(212, 226, 224);
+}
+
+.header {
+    background-color: aquamarine;
+    border-color: rgb(26, 42, 40);
+    margin: 0 auto;
+    width: 55vw;
+    height: 25vw;
+    border-style: solid;
+    border-radius: 5px;
+    position: relative;
+}
+
+.banner {
+    display: flex;
+    justify-content: center; /* horizontally center the form */
+    align-items: center; /* vertically center the form */
+  }
+
+  .waicons {
+    position: absolute; /* position the form inside the header */
+    top: 32%; /* position the form 2/3 of the way down */
+    left: 50%; /* horizontally center the form */
+    transform: translate(-50%, -50%); /* adjust for the form's height */
+  }
+
+  .emojis {
+    font-size: 1.875em;
+    overflow: hidden;
+  }
+  .watitle {
+    position: absolute; /* position the form inside the header */
+    top: 45%; /* position the form 2/3 of the way down */
+    left: 50%; /* horizontally center the form */
+    transform: translate(-50%, -50%); /* adjust for the form's height */
+  }
+  
+  .userinput {
+    position: absolute; /* position the form inside the header */
+    top: 66.67%; /* position the form 2/3 of the way down */
+    left: 50%; /* horizontally center the form */
+    transform: translate(-50%, -50%); /* adjust for the form's height */
+  }
+  
+.btn1 {
+    display: inline-block;
+}
+
+.landing {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.widgets {
+
+    margin: 4px;
+    padding: 4px;
+    max-width: 15vw;
+    max-height: 40vw;
+    background-color: beige;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.query0 {
+    margin: 4px;
+    padding: 4px;
+    max-width: 15vw;
+    background-color: beige;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.prev {
+    margin: 4px;
+    padding: 4px;
+    background-color: beige;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+
