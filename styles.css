@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-.body {
-    justify-content: center;
-    background-color: rgb(206, 250, 243);
+@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
+
+body {
+    background-color: rgb(224, 253, 248);
+    font-family: 'Slabo 27px', serif;
 }
 
 .header {
@@ -9,7 +10,7 @@
     border-color: rgb(26, 42, 40);
     margin: 0 auto;
     width: 55vw;
-    height: 25vw;
+    height: 20vw;
     border-style: solid;
     border-radius: 5px;
     position: relative;
@@ -17,38 +18,40 @@
 
 .banner {
     display: flex;
-    justify-content: center; /* horizontally center the form */
-    align-items: center; /* vertically center the form */
-  }
+    justify-content: center;
+    align-items: center;
+}
 
-  .waicons {
-    position: absolute; /* position the form inside the header */
-    top: 32%; /* position the form 2/3 of the way down */
-    left: 50%; /* horizontally center the form */
-    transform: translate(-50%, -50%); /* adjust for the form's height */
-  }
+.waicons {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-  .emojis {
+.emojis {
     font-size: 1.875em;
     overflow: hidden;
-  }
-  .watitle {
-    position: absolute; /* position the form inside the header */
-    top: 45%; /* position the form 2/3 of the way down */
-    left: 50%; /* horizontally center the form */
-    transform: translate(-50%, -50%); /* adjust for the form's height */
-  }
-  
-  .userinput {
-    position: absolute; /* position the form inside the header */
-    top: 66.67%; /* position the form 2/3 of the way down */
-    left: 50%; /* horizontally center the form */
-    transform: translate(-50%, -50%); /* adjust for the form's height */
-  }
-  
+}
+
+.watitle {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.userinput {
+    position: absolute;
+    top: 66.67%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .btn1 {
     display: inline-block;
 }
+
 .grid-container {
     margin: 0 auto;
     max-width: 55vw;
@@ -57,9 +60,10 @@
 .landing0 {
     display: grid;
     grid-template-columns: 65% 35%;
-    
+
 
 }
+
 .landing {
     max-width: 55vw;
     display: none;
@@ -78,7 +82,7 @@
     padding: 4px;
     max-width: 15vw;
     max-height: 40vw;
-    text-align: left;
+    text-align: center;
     background-color: beige;
     border-color: black;
     border-style: solid;
@@ -136,6 +140,7 @@
     border-radius: 5px;
     border-style: solid;
 }
+
 .today {
     margin: 4px;
     padding: 4px;
@@ -144,8 +149,8 @@
     border-radius: 5px;
     border-style: solid;
 }
-.tomorrow {
 
+.tomorrow {
     margin: 4px;
     padding: 4px;
     background-color: beige;
@@ -153,6 +158,7 @@
     border-radius: 5px;
     border-style: solid;
 }
+
 .tomorrow2 {
 
     margin: 4px;
@@ -166,5 +172,3 @@
 li {
     cursor: pointer;
 }
-
-

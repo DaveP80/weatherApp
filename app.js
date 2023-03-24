@@ -1,14 +1,18 @@
+//store good user searches
 let searchquery = {}
 
 async function getWeather(api_url) {
 
+    const myElement = document.querySelector('.query1');
+    const loadingText = document.createTextNode('...loading');
+    if (myElement) myElement.appendChild(loadingText)
     const response = await fetch(api_url);
 
     const data = await response.json();
 
     return data;
 }
-let submitwidget = document.querySelector(".example")
+let submitwidget = document.querySelector(".convt")
 submitwidget.addEventListener('submit', (event) => {
 
     event.preventDefault()
@@ -23,24 +27,23 @@ submitwidget.addEventListener('submit', (event) => {
     if (radio1.checked == true) { result = ((number - 32) * 5) / 9 }
     else if (radio2.checked == true) { result = (number * 1.8) + 32 }
 
-    if (radio1.checked || radio2.checked) { 
+    if (radio1.checked || radio2.checked) {
         let result2 = document.querySelector('.tempresult')
 
         result2.textContent = result.toFixed(2)
     }
 })
-
 let hform = document.querySelector('.userinput')
 
 hform.addEventListener('submit', (event) => {
     event.preventDefault()
 
     getWeather(`https://wttr.in/${event.target.city.value}?format=j1`).then(res => {
-
+        //if a api returns a weather location
         if (res['nearest_area'][0]['region'][0]['value']) {
-            let erasestate = document.querySelector('.grid-container') 
+            let erasestate = document.querySelector('.grid-container')
             if (erasestate) erasestate.remove()
-
+            //show our loaded results grid state
             let newstate = document.querySelector('.landing')
             newstate.style.display = 'grid'
 
@@ -69,7 +72,7 @@ hform.addEventListener('submit', (event) => {
             <strong>Chance of Snow:</strong> ${res['weather'][0]['hourly'][0]['chanceofsnow']}<br/>
             <strong>Chance of Rain:</strong> ${res['weather'][0]['hourly'][0]['chanceofrain']}`
             rundown.appendChild(p)
-
+            //add picture icons if conditions pass
             if (Number(res['weather'][0]['hourly'][0]['chanceofsunshine']) > 50) {
                 let sicon = document.createElement('img')
                 sicon.alt = 'sun'
@@ -88,16 +91,16 @@ hform.addEventListener('submit', (event) => {
             }
 
             let preventd = document.querySelectorAll('.prev li')
-
+            //if the location is unique in the user session, add to sidebar
             if (!Object.values(preventd).some(item => item.id == res['nearest_area'][0]['areaName'][0]['value'])) {
 
                 let sbar = document.querySelector('.slist')
                 let newitem = document.createElement('li')
                 newitem.id = res['nearest_area'][0]['areaName'][0]['value']
-                newitem.innerHTML = 
-                `<a><u>${res['nearest_area'][0]['areaName'][0]['value']}</u></a> ${res['current_condition'][0]['FeelsLikeF']}°F`
+                newitem.innerHTML =
+                    `<a><u>${res['nearest_area'][0]['areaName'][0]['value']}</u></a> ${res['current_condition'][0]['FeelsLikeF']}°F`
                 sbar.appendChild(newitem)
-
+                //each list item has an event listener that clears the main div
                 newitem.addEventListener('click', (event) => {
                     event.preventDefault()
                     let changecenter = document.querySelector('.query0')
@@ -111,8 +114,8 @@ hform.addEventListener('submit', (event) => {
                     let rundown = document.querySelector('.query0 .rundown')
                     rundown.innerHTML = ""
                     let p = document.createElement('p')
-                    p.innerHTML = 
-                    `<strong>Area:</strong> ${searchquery[newitem.id]['nearest_area'][0]['areaName'][0]['value']}<br/>
+                    p.innerHTML =
+                        `<strong>Area:</strong> ${searchquery[newitem.id]['nearest_area'][0]['areaName'][0]['value']}<br/>
                     <strong>Region:</strong> ${searchquery[newitem.id]['nearest_area'][0]['region'][0]['value']}<br/> 
                     <strong>Country:</strong> ${searchquery[newitem.id]['nearest_area'][0]['country'][0]['value']}<br/>
                     <strong>Currently:</strong> Feels Like ${searchquery[newitem.id]['current_condition'][0]['FeelsLikeF']}°F`
@@ -120,8 +123,8 @@ hform.addEventListener('submit', (event) => {
                     changeCenter(searchquery[newitem.id])
                 })
             }
+            //update all main divs with new weather information
             let changeCenter = (args) => {
-
                 ['.today', '.tomorrow', '.tomorrow2'].forEach((item, i) => {
                     let rundown2 = document.querySelector(item + " " + '.rundown')
                     rundown2.innerHTML = ""
@@ -138,4 +141,3 @@ hform.addEventListener('submit', (event) => {
     }
     )
 })
-
