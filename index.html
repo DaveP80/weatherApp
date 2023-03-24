@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +9,19 @@
     <link rel="stylesheet" href="styles.css" />
     <script defer src="app.js"></script>
 </head>
+
 <body>
     <div class="banner">
         <header class="header">
-            <div class="waicons"><p class="emojis">❄️ 🌩️ 🌞 🛰️</p></div>
+            <div class="waicons">
+                <p class="emojis">❄️ 🌩️ 🌞 🛰️</p>
+            </div>
             <div class="watitle">
                 <h1>Weather App</h1>
             </div>
             <form class="userinput">
                 <label>Pick a Location</label>
-                <input type="text" placeholder="NYC" name="city" class="uinput"/>
+                <input type="text" placeholder="NYC" name="city" class="uinput" />
                 <input type="submit" class="btn1"></button>
             </form>
         </header>
@@ -25,49 +29,50 @@
     <div class="landing">
         <aside class="widgets">
             <form class="example">
-           
+
                 <label for="temp-to-convert">Convert the Temperature:</label>
-                <input type="number" id="temp-to-convert" name="number"/>
+                <input type="number" id="temp-to-convert" name="number" />
                 <br />
                 <label for="to-f">To Farenheit</label>
-                <input type="radio" id="to-f" name="f-button" value="farenheit" />
+                <input type="radio" id="to-f" name="r-button" value="farenheit"/>
                 <label for="to-c">To Celsius</label>
-                <input type="radio" id="to-c" name="c-button" value="celsius" />
+                <input type="radio" id="to-c" name="r-button" value="celsius" />
                 <br />
-                <input type="submit" value="submit" onclick="submitForm()" />
-        </form>
-        <h4></h4>
+                <input type="submit" value="submit" />
+            </form>
+            <h4 class="tempresult"></h4>
         </aside>
-    <main>
-        <article class="query0">
-            <h4>Choose a location to view the weather</h4>
-            <div class="rundown"></div>
-        </article>
-        <aside></aside>
-        <aside>
-            <section class="prev">
-                <h4>Previous Searches</h4>
-                <ul class="slist"></ul>
-                <p class="pul">No previous searches</p>
-            </section>
-        </aside>
-        <aside class="future">
-            <article class="today">
-                <h4>Today</h4>
+        <main>
+            <article class="query0">
+                <h4>Choose a location to view the weather</h4>
                 <div class="rundown"></div>
             </article>
-            <article class="tomorrow">
-                <h4>Tomorrow</h4>
-                <div class="rundown"></div>
-            </article>
-            <article class="tomorrow2">
-                <h4>Day after tommorow</h4>
-                <div class="rundown"></div>
-            </article>
-        </aside>
-    </main>
-    
+            <aside></aside>
+            <aside>
+                <section class="prev">
+                    <h4>Previous Searches</h4>
+                    <ul class="slist"></ul>
+                    <p class="pul">No previous searches</p>
+                </section>
+            </aside>
+            <aside class="future">
+                <article class="today">
+                    <h4>Today</h4>
+                    <div class="rundown"></div>
+                </article>
+                <article class="tomorrow">
+                    <h4>Tomorrow</h4>
+                    <div class="rundown"></div>
+                </article>
+                <article class="tomorrow2">
+                    <h4>Day after tommorow</h4>
+                    <div class="rundown"></div>
+                </article>
+            </aside>
+        </main>
+
     </div>
-    
+
 </body>
+
 </html>

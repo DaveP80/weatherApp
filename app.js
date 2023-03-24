@@ -10,15 +10,30 @@ let searchquery = {}
     return data;  
 }
 
-function submitForm() {
-    const numberInput = document.getElementById("number");
-    const incrementerInput = document.getElementById("incrementer");
+    
+    let submitwidget = document.querySelector(".example")
+    submitwidget.addEventListener('submit', (event) => {
 
-    const number = parseInt(numberInput.value);
-    const incrementer = parseInt(incrementerInput.value);
+        event.preventDefault()
+        let result = 0;
+        const numberInput = document.getElementById("temp-to-convert");
 
-    const result = number + incrementer;
-}
+        const number = parseInt(numberInput.value);
+
+        let radio1 = document.getElementById("to-c")
+        let radio2 = document.getElementById("to-f")
+
+        if (radio1.checked == true) {result = ((number-32)*5)/9}
+        else if (radio2.checked == true) {result = (number*1.8)+32}
+        let result2 = document.querySelector('.tempresult')
+        
+        result2.textContent = result.toFixed(2)
+        console.log(result.toFixed(2))
+   
+    })
+
+    //result2.textContent = result
+
 let count = 0
 let futurecast = document.querySelector('.future')
 let firstcolumn = document.querySelector('.landing')

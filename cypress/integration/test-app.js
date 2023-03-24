@@ -243,7 +243,7 @@ describe("Add icon based on chance data", () => {
   });
 });
 
-describe.only("It has a widget that allows users to convert C to F or F to C", () => {
+describe("It has a widget that allows users to convert C to F or F to C", () => {
   it("has a form, with one number input, two radio buttons and a submit", () => {
     cy.get("aside form").should("exist");
     cy.get("#to-c")
