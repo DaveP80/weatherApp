@@ -28,11 +28,8 @@ let searchquery = {}
         let result2 = document.querySelector('.tempresult')
         
         result2.textContent = result.toFixed(2)
-        console.log(result.toFixed(2))
-   
-    })
 
-    //result2.textContent = result
+    })
 
 let count = 0
 let futurecast = document.querySelector('.future')
@@ -57,8 +54,6 @@ hform.addEventListener('submit', (event) => {
 
         searchquery[res['nearest_area'][0]['areaName'][0]['value']] = res
 
-        console.log(searchquery);
-
         let changeh4 = document.querySelector('.query0 h4')
         changeh4.textContent = event.target.city.value
         let rundown = document.querySelector('.query0 .rundown')
@@ -75,18 +70,23 @@ hform.addEventListener('submit', (event) => {
         // changeh4.textContent = res['nearest_area'][0]['country'][0]['value'] + " " + res['nearest_area'][0]['region'][0]['value'] + "\n" +
         // "feels like: " + res['current_condition'][0]['FeelsLikeF']
 
+        let preventd = document.querySelectorAll('.prev li')
+        //console.log(Object.values(preventd))
+        if (!Object.values(preventd).some(item => item.id==res['nearest_area'][0]['areaName'][0]['value'])) {
+
+
         let cpara = document.querySelector('.pul')
         cpara.hidden = 'true'
         let sbar = document.querySelector('.slist')
         let newitem = document.createElement('li')
         newitem.id = res['nearest_area'][0]['areaName'][0]['value']
-        newitem.innerHTML = `<a href=${''}>${res['nearest_area'][0]['areaName'][0]['value']}</a>  ${res['current_condition'][0]['FeelsLikeF']}°F`
+        newitem.innerHTML = `<a href=${''}>${res['nearest_area'][0]['areaName'][0]['value']}</a> ${res['current_condition'][0]['FeelsLikeF']}°F`
         sbar.appendChild(newitem)
 
         newitem.addEventListener('click', (event) => {
             event.preventDefault()
             let changeh4 = document.querySelector('.query0 h4')
-            console.log(newitem.id);
+            //console.log(newitem.id);
             changeh4.textContent = searchquery[newitem.id]['nearest_area'][0]['areaName'][0]['value']
             let rundown = document.querySelector('.query0 .rundown')
             rundown.innerHTML = ""
@@ -96,28 +96,40 @@ hform.addEventListener('submit', (event) => {
             <strong>Country:</strong> ${searchquery[newitem.id]['nearest_area'][0]['country'][0]['value']}<br/>
             <strong>Currently:</strong> Feels Like ${searchquery[newitem.id]['current_condition'][0]['FeelsLikeF']}°F`
             rundown.appendChild(p)
+            changeCenter(searchquery[newitem.id])
         })
+    }
 
+    let changeCenter = (args) => {
         let rundown2 = document.querySelector('.today .rundown')
+        rundown2.innerHTML = ""
         let p2 = document.createElement('p')
-        p2.innerHTML = `<strong>Average Temperature:</strong> ${res['weather'][0]['avgtempF']}°F<br/>
-        <strong>Max Temperature:</strong> ${res['weather'][0]['maxtempF']}°F<br/> 
-        <strong>Min Temperature:</strong> ${res['weather'][0]['mintempF']}°F<br/>`
+        p2.innerHTML = `<strong>Average Temperature:</strong> ${args['weather'][0]['avgtempF']}°F<br/>
+        <strong>Max Temperature:</strong> ${args['weather'][0]['maxtempF']}°F<br/> 
+        <strong>Min Temperature:</strong> ${args['weather'][0]['mintempF']}°F<br/>`
         rundown2.appendChild(p2)
 
         let rundown3 = document.querySelector('.tomorrow .rundown')
+        rundown3.innerHTML = ""
         let p3 = document.createElement('p')
-        p3.innerHTML = `<strong>Average Temperature:</strong> ${res['weather'][1]['avgtempF']}°F<br/>
-        <strong>Max Temperature:</strong> ${res['weather'][1]['maxtempF']}°F<br/> 
-        <strong>Min Temperature:</strong> ${res['weather'][1]['mintempF']}°F<br/>`
+        p3.innerHTML = `<strong>Average Temperature:</strong> ${args['weather'][1]['avgtempF']}°F<br/>
+        <strong>Max Temperature:</strong> ${args['weather'][1]['maxtempF']}°F<br/> 
+        <strong>Min Temperature:</strong> ${args['weather'][1]['mintempF']}°F<br/>`
         rundown3.appendChild(p3)
 
         let rundown4 = document.querySelector('.tomorrow2 .rundown')
+        rundown4.innerHTML = ""
         let p4 = document.createElement('p')
-        p4.innerHTML = `<strong>Average Temperature:</strong> ${res['weather'][2]['avgtempF']}°F<br/>
-        <strong>Max Temperature:</strong> ${res['weather'][2]['maxtempF']}°F<br/> 
-        <strong>Min Temperature:</strong> ${res['weather'][2]['mintempF']}°F<br/>`
+        p4.innerHTML = `<strong>Average Temperature:</strong> ${args['weather'][2]['avgtempF']}°F<br/>
+        <strong>Max Temperature:</strong> ${args['weather'][2]['maxtempF']}°F<br/> 
+        <strong>Min Temperature:</strong> ${args['weather'][2]['mintempF']}°F<br/>`
         rundown4.appendChild(p4)
+    }
+
+    changeCenter(res)
+    event.target.city.value = ''
+
+        
 
     }}
     )
