@@ -1,4 +1,3 @@
-//const api_url = "https://wttr.in/NYC?format=j1";
 let searchquery = {}
 
   async function getWeather(api_url) {
@@ -34,7 +33,6 @@ let futurecast = document.querySelector('.future')
 let firstcolumn = document.querySelector('.landing')
 firstcolumn.style.display = 'grid';
 
-// set the grid template to 3 columns and 2 rows
 firstcolumn.style.gridTemplateColumns = '1fr 1fr 1fr';
 firstcolumn.style.gridTemplateRows = '1fr 1fr';
 
@@ -46,13 +44,13 @@ hform.addEventListener('submit', (event) => {
     getWeather(`https://wttr.in/${event.target.city.value}?format=j1`).then(res => {
 
     if (res['nearest_area'][0]['region'][0]['value']) {
-        //loadpage.classList.toggle('widgets')
 
         futurecast.display = 'grid'
 
         searchquery[res['nearest_area'][0]['areaName'][0]['value']] = res
 
         let changeh4 = document.querySelector('.query0 h4')
+        changeh4.textContent = ''
         changeh4.textContent = event.target.city.value
         let rundown = document.querySelector('.query0 .rundown')
         rundown.innerHTML = ""
@@ -83,8 +81,6 @@ hform.addEventListener('submit', (event) => {
             rundown.prepend(sicon)
         }
 
-        // changeh4.textContent = res['nearest_area'][0]['country'][0]['value'] + " " + res['nearest_area'][0]['region'][0]['value'] + "\n" +
-        // "feels like: " + res['current_condition'][0]['FeelsLikeF']
         let checkside = document.querySelector('.pul')
 
         let preventd = document.querySelectorAll('.prev li')
@@ -92,9 +88,10 @@ hform.addEventListener('submit', (event) => {
         //console.log(Object.values(preventd))
         if (!Object.values(preventd).some(item => item.id==res['nearest_area'][0]['areaName'][0]['value'])) {
 
-
         let cpara = document.querySelector('.pul')
         cpara.hidden = 'true'
+        let delh = document.getElementById('prevheader')
+        if (delh) delh.remove();
         let sbar = document.querySelector('.slist')
         let newitem = document.createElement('li')
         newitem.id = res['nearest_area'][0]['areaName'][0]['value']
@@ -117,7 +114,6 @@ hform.addEventListener('submit', (event) => {
             changeCenter(searchquery[newitem.id])
         })
     }
-
     let changeCenter = (args) => {
         let rundown2 = document.querySelector('.today .rundown')
         rundown2.innerHTML = ""
