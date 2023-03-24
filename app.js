@@ -52,10 +52,14 @@ hform.addEventListener('submit', (event) => {
         let changeh4 = document.querySelector('.query0 h4')
         changeh4.textContent = ''
         changeh4.textContent = event.target.city.value
+        let h2title = document.createElement('h2')
+        h2title.textContent = event.target.city.value
+        document.querySelector('.query0').prepend(h2title)
         let rundown = document.querySelector('.query0 .rundown')
         rundown.innerHTML = ""
         let p = document.createElement('p')
-        p.innerHTML = `<strong>Area:</strong> ${res['nearest_area'][0]['areaName'][0]['value']}<br/>
+        p.innerHTML = `
+        <strong>Nearest Area:</strong> ${res['nearest_area'][0]['areaName'][0]['value']}<br/>
         <strong>Region:</strong> ${res['nearest_area'][0]['region'][0]['value']}<br/> 
         <strong>Country:</strong> ${res['nearest_area'][0]['country'][0]['value']}<br/>
         <strong>Currently:</strong> Feels Like ${res['current_condition'][0]['FeelsLikeF']}°F<br/>
