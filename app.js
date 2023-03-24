@@ -9,8 +9,6 @@ let searchquery = {}
 
     return data;  
 }
-
-    
     let submitwidget = document.querySelector(".example")
     submitwidget.addEventListener('submit', (event) => {
 
@@ -49,7 +47,7 @@ hform.addEventListener('submit', (event) => {
 
     if (res['nearest_area'][0]['region'][0]['value']) {
         //loadpage.classList.toggle('widgets')
-        let firstcolumn = document.querySelector('.landing')
+
         futurecast.display = 'grid'
 
         searchquery[res['nearest_area'][0]['areaName'][0]['value']] = res
@@ -63,14 +61,34 @@ hform.addEventListener('submit', (event) => {
         <strong>Region:</strong> ${res['nearest_area'][0]['region'][0]['value']}<br/> 
         <strong>Country:</strong> ${res['nearest_area'][0]['country'][0]['value']}<br/>
         <strong>Currently:</strong> Feels Like ${res['current_condition'][0]['FeelsLikeF']}°F<br/>
+        <strong>Chance of Sunshine:</strong> ${res['weather'][0]['hourly'][0]['chanceofsunshine']}<br/>
         <strong>Chance of Snow:</strong> ${res['weather'][0]['hourly'][0]['chanceofsnow']}<br/>
         <strong>Chance of Rain:</strong> ${res['weather'][0]['hourly'][0]['chanceofrain']}`
         rundown.appendChild(p)
 
+        if (Number(res['weather'][0]['hourly'][0]['chanceofsunshine'])>50) {
+            let sicon = document.createElement('img')
+            sicon.alt = 'sun'
+            sicon.src = './assets/icons8-summer.gif'
+            rundown.prepend(sicon)
+        } else if (Number(res['weather'][0]['hourly'][0]['chanceofrain'])>50) {
+            let sicon = document.createElement('img')
+            sicon.alt = 'rain'
+            sicon.src = './assets/icons8-torrential-rain.gif'
+            rundown.prepend(sicon)
+        } else if (Number(res['weather'][0]['hourly'][0]['chanceofsnow'])>50) {
+            let sicon = document.createElement('img')
+            sicon.alt = 'snow'
+            sicon.src = './assets/icons8-light-snow.gif'
+            rundown.prepend(sicon)
+        }
+
         // changeh4.textContent = res['nearest_area'][0]['country'][0]['value'] + " " + res['nearest_area'][0]['region'][0]['value'] + "\n" +
         // "feels like: " + res['current_condition'][0]['FeelsLikeF']
+        let checkside = document.querySelector('.pul')
 
         let preventd = document.querySelectorAll('.prev li')
+
         //console.log(Object.values(preventd))
         if (!Object.values(preventd).some(item => item.id==res['nearest_area'][0]['areaName'][0]['value'])) {
 
@@ -80,7 +98,7 @@ hform.addEventListener('submit', (event) => {
         let sbar = document.querySelector('.slist')
         let newitem = document.createElement('li')
         newitem.id = res['nearest_area'][0]['areaName'][0]['value']
-        newitem.innerHTML = `<a href=${''}>${res['nearest_area'][0]['areaName'][0]['value']}</a> ${res['current_condition'][0]['FeelsLikeF']}°F`
+        newitem.innerHTML = `<a><u>${res['nearest_area'][0]['areaName'][0]['value']}</u></a> ${res['current_condition'][0]['FeelsLikeF']}°F`
         sbar.appendChild(newitem)
 
         newitem.addEventListener('click', (event) => {
@@ -128,11 +146,8 @@ hform.addEventListener('submit', (event) => {
 
     changeCenter(res)
     event.target.city.value = ''
-
-        
-
-    }}
+    }
+}
     )
-    count ++
 })
 
