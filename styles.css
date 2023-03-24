@@ -51,8 +51,10 @@
 }
 
 .landing {
-    display: flex;
-    justify-content: center;
+    max-width: 55vw;
+    /* justify-content: center; */
+    /* grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr; */
     margin: 0 auto;
 }
 
@@ -72,6 +74,7 @@
     margin: 4px;
     padding: 4px;
     max-width: 15vw;
+    text-align: center;
     background-color: beige;
     border-color: black;
     border-style: solid;
@@ -79,6 +82,30 @@
 }
 
 .prev {
+    margin: 4px;
+    padding: 4px;
+    background-color: beige;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+}
+.today {
+    margin: 4px;
+    padding: 4px;
+    background-color: beige;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+}
+.tomorrow {
+    margin: 4px;
+    padding: 4px;
+    background-color: beige;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+}
+.tomorrow2 {
     margin: 4px;
     padding: 4px;
     background-color: beige;

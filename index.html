@@ -24,7 +24,19 @@
     </div>
     <div class="landing">
         <aside class="widgets">
-            <h4>Convert the temperature</h4>
+            <form class="example">
+           
+                <label for="temp-to-convert">Convert the Temperature:</label>
+                <input type="number" id="temp-to-convert" name="number"/>
+                <br />
+                <label for="to-f">To Farenheit</label>
+                <input type="radio" id="to-f" name="f-button" value="farenheit" />
+                <label for="to-c">To Celsius</label>
+                <input type="radio" id="to-c" name="c-button" value="celsius" />
+                <br />
+                <input type="submit" value="submit" onclick="submitForm()" />
+        </form>
+        <h4></h4>
         </aside>
     <main>
         <article class="query0">
@@ -32,14 +44,29 @@
             <div class="rundown"></div>
         </article>
         <aside></aside>
+        <aside>
+            <section class="prev">
+                <h4>Previous Searches</h4>
+                <ul class="slist"></ul>
+                <p class="pul">No previous searches</p>
+            </section>
+        </aside>
+        <aside class="future">
+            <article class="today">
+                <h4>Today</h4>
+                <div class="rundown"></div>
+            </article>
+            <article class="tomorrow">
+                <h4>Tomorrow</h4>
+                <div class="rundown"></div>
+            </article>
+            <article class="tomorrow2">
+                <h4>Day after tommorow</h4>
+                <div class="rundown"></div>
+            </article>
+        </aside>
     </main>
-    <aside>
-        <section class="prev">
-            <h4>Previous Searches</h4>
-            <ul class="slist"></ul>
-            <p class="pul">No previous searches</p>
-        </section>
-    </aside>
+    
     </div>
     
 </body>
