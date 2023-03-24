@@ -22,19 +22,13 @@ submitwidget.addEventListener('submit', (event) => {
 
     if (radio1.checked == true) { result = ((number - 32) * 5) / 9 }
     else if (radio2.checked == true) { result = (number * 1.8) + 32 }
-    let result2 = document.querySelector('.tempresult')
 
-    result2.textContent = result.toFixed(2)
+    if (radio1.checked || radio2.checked) { 
+        let result2 = document.querySelector('.tempresult')
 
+        result2.textContent = result.toFixed(2)
+    }
 })
-
-let count = 0
-let futurecast = document.querySelector('.future')
-let firstcolumn = document.querySelector('.landing')
-firstcolumn.style.display = 'grid';
-
-firstcolumn.style.gridTemplateColumns = '1fr 1fr 1fr';
-firstcolumn.style.gridTemplateRows = '1fr 1fr';
 
 let hform = document.querySelector('.userinput')
 
@@ -44,14 +38,22 @@ hform.addEventListener('submit', (event) => {
     getWeather(`https://wttr.in/${event.target.city.value}?format=j1`).then(res => {
 
         if (res['nearest_area'][0]['region'][0]['value']) {
+            let erasestate = document.querySelector('.grid-container') 
+            if (erasestate) erasestate.remove()
 
-            futurecast.display = 'grid'
+            let newstate = document.querySelector('.landing')
+            newstate.style.display = 'grid'
+
+            let awidget = document.querySelector('.widgets')
+
+            awidget.style.display = 'block';
 
             searchquery[res['nearest_area'][0]['areaName'][0]['value']] = res
 
             let changeh4 = document.querySelector('.query0 h4')
-            changeh4.textContent = ''
-            changeh4.textContent = event.target.city.value
+            if (changeh4) changeh4.remove()
+            let dh2 = document.querySelector('.query0 h2')
+            if (dh2) dh2.remove()
             let h2title = document.createElement('h2')
             h2title.textContent = event.target.city.value
             document.querySelector('.query0').prepend(h2title)
@@ -89,10 +91,6 @@ hform.addEventListener('submit', (event) => {
 
             if (!Object.values(preventd).some(item => item.id == res['nearest_area'][0]['areaName'][0]['value'])) {
 
-                let cpara = document.querySelector('.pul')
-                cpara.hidden = 'true'
-                let delh = document.getElementById('prevheader')
-                if (delh) delh.remove();
                 let sbar = document.querySelector('.slist')
                 let newitem = document.createElement('li')
                 newitem.id = res['nearest_area'][0]['areaName'][0]['value']

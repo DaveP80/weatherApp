@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 .body {
     justify-content: center;
-    background-color: rgb(212, 226, 224);
+    background-color: rgb(206, 250, 243);
 }
 
 .header {
@@ -49,13 +49,27 @@
 .btn1 {
     display: inline-block;
 }
+.grid-container {
+    margin: 0 auto;
+    max-width: 55vw;
+}
 
+.landing0 {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    
+
+}
 .landing {
     max-width: 55vw;
-    /* justify-content: center; */
-    /* grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr; */
+    display: none;
     margin: 0 auto;
+}
+
+.mlanding {
+    grid-template-areas: "query0" "prevcont" "future";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2;
 }
 
 .widgets {
@@ -72,6 +86,7 @@
 }
 
 .query0 {
+    grid-area: query0;
     margin: 4px;
     padding: 4px;
     max-width: 15vw;
@@ -82,7 +97,38 @@
     border-radius: 5px;
 }
 
+.query1 {
+    grid-column: 1/2;
+    margin: 4px;
+    padding: 4px;
+    text-align: center;
+    background-color: beige;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
+}
+
 .prev {
+    margin: 4px;
+    padding: 4px;
+    background-color: beige;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+.prevcont {
+
+    grid-area: prevcont;
+}
+
+.future {
+    grid-area: future;
+}
+
+.prev0 {
+    grid-column: 2/3;
+    text-align: center;
     margin: 4px;
     padding: 4px;
     background-color: beige;
@@ -99,6 +145,7 @@
     border-style: solid;
 }
 .tomorrow {
+
     margin: 4px;
     padding: 4px;
     background-color: beige;
@@ -107,12 +154,17 @@
     border-style: solid;
 }
 .tomorrow2 {
+
     margin: 4px;
     padding: 4px;
     background-color: beige;
     border-color: black;
     border-radius: 5px;
     border-style: solid;
+}
+
+li {
+    cursor: pointer;
 }
 
 
