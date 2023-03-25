@@ -3,44 +3,71 @@
 body {
     background-color: rgb(224, 253, 248);
     font-family: 'Slabo 27px', serif;
+    overflow-x: visible;
 }
 
 .header {
-    background-color: aquamarine;
-    border-color: rgb(26, 42, 40);
+    position: relative;
     margin: 0 auto;
+    display: grid;
     width: 55vw;
     height: 20vw;
+    padding: 1em;
     border-style: solid;
     border-radius: 5px;
-    position: relative;
+    background-color: aquamarine;
+    border-color: rgb(26, 42, 40);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "waicons watitle newsTicker"
+        "waicons userinput userinput";
 }
 
 .waicons {
-    position: absolute;
-    top: 32%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    grid-area: waicons;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.watitle {
+    grid-area: watitle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userinput {
+    grid-area: userinput;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#newsTicker {
+    grid-area: newsTicker;
+    display: flex;
+    width: 100%;
+    background: #61a3d9;
+    color: white;
+    box-shadow: 0px 0px 8px 2px #000000;
+    border: 2px solid #000;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    z-index: 998;
+    height: 4vw;
+    justify-content: center;
+    align-items: center;
 }
 
 .emojis {
     font-size: 1.875em;
     overflow: hidden;
-}
-
-.watitle {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.userinput {
-    position: absolute;
-    top: 66.67%;
-    left: 50%;
-    font-size: 18px;
-    transform: translate(-50%, -50%);
 }
 
 .uinput {
@@ -65,6 +92,7 @@ body {
 .grid-container {
     margin: 0 auto;
     max-width: 55vw;
+    gap: 0.5fr;
 }
 
 .landing0 {
@@ -78,7 +106,7 @@ body {
     margin: 0 auto;
     grid-template-columns: 33% auto;
     grid-template-rows: 1fr;
-    gap: 10px; 
+    gap: 0.5fr;
 }
 
 .mlanding {
@@ -95,7 +123,6 @@ body {
     grid-column: 1 / span 1;
     margin: 4px;
     padding: 4px;
-    max-width: 15vw;
     max-height: 40vw;
     text-align: center;
     background-color: beige;
@@ -109,7 +136,6 @@ body {
     grid-column: 1/ span 1;
     margin: 4px;
     padding: 4px;
-    max-width: 15vw;
     text-align: center;
     background-color: beige;
     border-color: black;
@@ -183,63 +209,50 @@ li {
     cursor: pointer;
 }
 
-  #newsTicker {
-    position: absolute;
-    max-width: 15vw;
-    background: #61a3d9;
-    color: white;
-    top: 70%;
-    left: 2%;
-    box-shadow: 0px 0px 8px 2px #000000;
-    border: 2px solid #000;
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    z-index: 998;
-    height: 4vw;
-    display: flex;
-    align-items: center;
-  }
-  #newsTicker p {
-    margin: 4px;
+#newsTicker p {
     display: inline-block;
     font-size: 25px;
     padding-left: 100%;
-    animation: tickerTape 5s linear infinite;
-  }
-  @keyframes tickerTape {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(-100%, 0);
-    }
-  }
+    animation: tickerTape 18s linear infinite;
+}
 
-  @media only screen and (max-width: 600px) {
-    .grid-container,
-    .landing
-    {
-      max-width: 100vw;
+@keyframes tickerTape {
+    0% {
+        transform: translate(0, 0);
     }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .grid-container,
+    .landing {
+        max-width: 100vw;
+    }
+
     .header {
         width: 100vw;
         height: 40vw;
-        margin: 0;
     }
-  }
+}
 
-  .rundown img {
+@media only screen and (max-width: 680px) {
+    #newsTicker p {
+        font-size: small;
+    }
+}
+
+.rundown img {
     max-width: 100%;
     height: auto;
-  }
-  
-  @media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 480px) {
     body {
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         font-size: small;
     }
-  }
-  
+}

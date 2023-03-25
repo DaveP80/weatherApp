@@ -3,7 +3,7 @@ let searchquery = {}
 
 getWeather(`https://wttr.in/?format=j1`).then(e => {
     let newst = document.querySelector('#newsTicker p')
-    newst.append(` ${e['nearest_area'][0]['areaName'][0]['value'] ?? 'near you'}: 
+    newst.append(`${e['nearest_area'][0]['areaName'][0]['value'] ?? 'near you'}: 
     chance of precipitation ${e['weather'][0]['hourly'][0]['chanceofrain'] + '%' ?? 'search'}`)
 })
 
