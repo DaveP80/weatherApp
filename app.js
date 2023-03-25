@@ -53,10 +53,6 @@ hform.addEventListener('submit', (event) => {
             let newstate = document.querySelector('.landing')
             newstate.style.display = 'grid'
 
-            let awidget = document.querySelector('.widgets')
-
-            awidget.style.display = 'block';
-
             searchquery[res['nearest_area'][0]['areaName'][0]['value']] = res
 
             let changeh4 = document.querySelector('.query0 h4')
