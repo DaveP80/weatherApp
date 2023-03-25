@@ -1,15 +1,21 @@
 //store good user searches
 let searchquery = {}
 
-async function getWeather(api_url) {
+getWeather(`https://wttr.in/?format=j1`).then(e => {
+    let newst = document.querySelector('#newsTicker p')
+    newst.append(` ${e['nearest_area'][0]['areaName'][0]['value'] ?? 'near you'}: 
+    chance of precipitation ${e['weather'][0]['hourly'][0]['chanceofrain'] + '%' ?? 'search'}`)
+})
 
-    const myElement = document.querySelector('.query1');
-    const loadingText = document.createTextNode('...loading');
-    if (myElement) myElement.appendChild(loadingText)
+async function getWeather(api_url, flag) {
+    if (flag == "search") {
+        const myElement = document.querySelector('.query1');
+        const loadingText = document.createTextNode('...loading');
+        if (myElement) myElement.appendChild(loadingText)
+    }
     const response = await fetch(api_url);
 
     const data = await response.json();
-
     return data;
 }
 let submitwidget = document.querySelector(".convt")
@@ -38,7 +44,7 @@ let hform = document.querySelector('.userinput')
 hform.addEventListener('submit', (event) => {
     event.preventDefault()
 
-    getWeather(`https://wttr.in/${event.target.city.value}?format=j1`).then(res => {
+    getWeather(`https://wttr.in/${event.target.city.value}?format=j1`, "search").then(res => {
         //if a api returns a weather location
         if (res['nearest_area'][0]['region'][0]['value']) {
             let erasestate = document.querySelector('.grid-container')
@@ -73,17 +79,17 @@ hform.addEventListener('submit', (event) => {
             <strong>Chance of Rain:</strong> ${res['weather'][0]['hourly'][0]['chanceofrain']}`
             rundown.appendChild(p)
             //add picture icons if conditions pass
-            if (Number(res['weather'][0]['hourly'][0]['chanceofsunshine']) > 50) {
+            if (+(res['weather'][0]['hourly'][0]['chanceofsunshine']) > 50) {
                 let sicon = document.createElement('img')
                 sicon.alt = 'sun'
                 sicon.src = './assets/icons8-summer.gif'
                 rundown.prepend(sicon)
-            } else if (Number(res['weather'][0]['hourly'][0]['chanceofrain']) > 50) {
+            } else if (+(res['weather'][0]['hourly'][0]['chanceofrain']) > 50) {
                 let sicon = document.createElement('img')
                 sicon.alt = 'rain'
                 sicon.src = './assets/icons8-torrential-rain.gif'
                 rundown.prepend(sicon)
-            } else if (Number(res['weather'][0]['hourly'][0]['chanceofsnow']) > 50) {
+            } else if (+(res['weather'][0]['hourly'][0]['chanceofsnow']) > 50) {
                 let sicon = document.createElement('img')
                 sicon.alt = 'snow'
                 sicon.src = './assets/icons8-light-snow.gif'
