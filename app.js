@@ -20,7 +20,6 @@ async function getWeather(api_url, flag) {
 }
 let submitwidget = document.querySelector(".convt")
 submitwidget.addEventListener('submit', (event) => {
-
     event.preventDefault()
     let result = 0;
     const numberInput = document.getElementById("temp-to-convert");
