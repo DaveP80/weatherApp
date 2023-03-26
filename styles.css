@@ -15,7 +15,8 @@ body {
     padding: 1em;
     overflow: hidden;
     border-style: solid;
-    border-radius: 5px;
+    border-width: medium;
+    border-radius: 0.5em;
     background-color: aquamarine;
     border-color: rgb(26, 42, 40);
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -45,6 +46,7 @@ body {
     display: block;
     margin: 0 auto;
     width: 80%;
+    height: 100%;
 }
 
 .ntcont {
@@ -60,7 +62,7 @@ body {
     background: #61a3d9;
     color: white;
     box-shadow: 0px 0px 8px 2px #000000;
-    border: 2px solid #000;
+    border: 0.2em solid #000;
     border-radius: .5em;
     white-space: nowrap;
     overflow: hidden;
@@ -85,7 +87,6 @@ body {
 .convt {
     max-width: 100%;
     padding: 1em;
-    box-sizing: border-box;
 }
 
 .pul {
@@ -130,44 +131,44 @@ body {
 .widgets {
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
-    margin: 4px;
+    margin: 0.3em;
     padding: 4px;
     text-align: center;
     background-color: beige;
     border-color: black;
     border-style: solid;
-    border-radius: 5px;
+    border-radius: 0.5em;
     overflow: hidden;
 }
 
 .query0 {
     grid-row: 1/ 2;
     grid-column: 1/ span 1;
-    margin: 4px;
+    margin: 0.3em;
     padding: 4px;
     text-align: center;
     background-color: beige;
     border-color: black;
     border-style: solid;
-    border-radius: 5px;
+    border-radius: 0.5em;
 }
 
 .query1 {
     grid-column: 1/2;
-    margin: 4px;
+    margin: 0.3em;
     padding: 4px;
     text-align: center;
     background-color: beige;
     border-color: black;
     border-style: solid;
-    border-radius: 5px;
+    border-radius: 0.5em;
 }
 
 .prev {
     padding: 4px;
     background-color: beige;
     border-color: black;
-    border-radius: 5px;
+    border-radius: 0.5em;
     border-style: solid;
 }
 
@@ -179,38 +180,38 @@ body {
 .prev0 {
     grid-column: 2/3;
     text-align: center;
-    margin: 4px;
+    margin: 0.3em;
     padding: 4px;
     background-color: beige;
     border-color: black;
-    border-radius: 5px;
+    border-radius: 0.5em;
     border-style: solid;
 }
 
 .today {
-    margin: 4px;
-    padding: 4px;
+    margin: 0.3em;
+    padding: 0.3em;
     background-color: beige;
     border-color: black;
-    border-radius: 5px;
+    border-radius: 0.5em;
     border-style: solid;
 }
 
 .tomorrow {
-    margin: 4px;
-    padding: 4px;
+    margin: 0.3em;
+    padding: 0.3em;
     background-color: beige;
     border-color: black;
-    border-radius: 5px;
+    border-radius: 0.5em;
     border-style: solid;
 }
 
 .tomorrow2 {
-    margin: 4px;
-    padding: 4px;
+    margin: 0.3em;
+    padding: 0.3em;
     background-color: beige;
     border-color: black;
-    border-radius: 5px;
+    border-radius: 0.5em;
     border-style: solid;
 }
 
@@ -270,6 +271,18 @@ li {
     }
     .btn1 {
         font-size: smaller;
+    }
+    .header,
+    .widgets,
+    .query0,
+    .query1,
+    .prev0,
+    .prev,
+    .today,
+    .tomorrow,
+    .tomorrow2
+     {
+        border-width: thin;
     }
 }
 @media only screen and (max-width: 350px) {
