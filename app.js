@@ -1,6 +1,3 @@
-//store good user searches
-let searchquery = {}
-
 getWeather(`https://wttr.in/?format=j1`).then(e => {
     let newst = document.querySelector('#newsTicker p')
     newst.append(`${e['nearest_area'][0]['areaName'][0]['value'] ?? 'near you'}: 
@@ -18,6 +15,31 @@ async function getWeather(api_url, flag) {
     const data = await response.json();
     return data;
 }
+
+//store good user searches
+let searchquery = {}
+//copy and paste icon
+function copyDivContents() {
+    var divContent = document.querySelector(".query0 .rundown").textContent;
+    var tempElement = document.createElement("textarea");
+    tempElement.value = divContent.trim();
+    document.body.appendChild(tempElement);
+    tempElement.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempElement);
+}
+
+let addCopyP = () => {
+    let addicon = document.querySelector('.query0')
+    let remicon = document.querySelector('i')
+    if (remicon) remicon.remove()
+    let iconp = document.createElement('i')
+    iconp.style = 'margin-bottom: 0.2em'
+    iconp.classList.add('fa', 'fa-copy')
+    iconp.onclick = copyDivContents
+    addicon.append(iconp)
+}
+
 let submitwidget = document.querySelector(".convt")
 submitwidget.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -61,6 +83,7 @@ hform.addEventListener('submit', (event) => {
             let h2title = document.createElement('h2')
             h2title.textContent = event.target.city.value
             document.querySelector('.query0').prepend(h2title)
+            addCopyP()
             let rundown = document.querySelector('.query0 .rundown')
             rundown.innerHTML = ""
             let p = document.createElement('p')
@@ -90,7 +113,6 @@ hform.addEventListener('submit', (event) => {
                 sicon.src = './assets/icons8-light-snow.gif'
                 rundown.prepend(sicon)
             }
-
             let preventd = document.querySelectorAll('.prev li')
             //if the location is unique in the user session, add to sidebar
             if (!Object.values(preventd).some(item => item.id == res['nearest_area'][0]['areaName'][0]['value'])) {
@@ -121,6 +143,7 @@ hform.addEventListener('submit', (event) => {
                     <strong>Country:</strong> ${searchquery[newitem.id]['nearest_area'][0]['country'][0]['value']}<br/>
                     <strong>Currently:</strong> Feels Like ${searchquery[newitem.id]['current_condition'][0]['FeelsLikeF']}°F`
                     rundown.appendChild(p)
+                    addCopyP()
                     changeCenter(searchquery[newitem.id])
                 })
             }
