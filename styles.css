@@ -43,13 +43,18 @@ body {
     grid-area: userinput;
     font-size: 18px;
     display: block;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
     width: 80%;
 }
 
-#newsTicker {
+.ntcont {
     grid-area: newsTicker;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#newsTicker {
     display: flex;
     width: 85%;
     background: #61a3d9;
@@ -59,13 +64,7 @@ body {
     border-radius: .5em;
     white-space: nowrap;
     overflow: hidden;
-    box-sizing: border-box;
-    padding-top: 5px;
-    z-index: 998;
-    height: 4vw;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
+    height: min-content;
 }
 
 .emojis {
@@ -76,7 +75,6 @@ body {
 
 .uinput {
     font-size: 18px;
-
 }
 
 .btn1 {
@@ -229,6 +227,7 @@ li {
     display: inline-block;
     font-size: 25px;
     padding-left: 100%;
+    margin: 0.5em;
     animation: tickerTape 18s linear infinite;
 }
 
@@ -299,5 +298,10 @@ li {
     }
     .pul {
         display: none;
-    }   
+    }
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
