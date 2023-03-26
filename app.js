@@ -34,7 +34,7 @@ submitwidget.addEventListener('submit', (event) => {
 
     if (radio1.checked || radio2.checked) {
         let result2 = document.querySelector('.tempresult')
-
+        result2.style.display = 'block'
         result2.textContent = result.toFixed(2)
     }
 })
