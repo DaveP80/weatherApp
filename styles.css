@@ -51,11 +51,12 @@ body {
 #newsTicker {
     grid-area: newsTicker;
     display: flex;
-    width: 100%;
+    width: 85%;
     background: #61a3d9;
     color: white;
     box-shadow: 0px 0px 8px 2px #000000;
     border: 2px solid #000;
+    border-radius: .5em;
     white-space: nowrap;
     overflow: hidden;
     box-sizing: border-box;
@@ -87,6 +88,11 @@ body {
     max-width: 100%;
     padding: 1em;
     box-sizing: border-box;
+}
+
+.pul {
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 #temp-to-convert,
@@ -210,6 +216,11 @@ body {
     border-style: solid;
 }
 
+.rundown img {
+    max-width: 100%;
+    height: auto;
+}
+
 li {
     cursor: pointer;
 }
@@ -251,11 +262,6 @@ li {
     .btn1 {
         font-size: small;
     }
-}
-
-.rundown img {
-    max-width: 100%;
-    height: auto;
 }
 
 @media only screen and (max-width: 480px) {
