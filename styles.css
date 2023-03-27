@@ -6,6 +6,7 @@ body {
     overflow-x: visible;
     display: grid;
     grid-template-columns: 1fr;
+    margin: 0.4em;
 }
 
 .header {
@@ -104,7 +105,7 @@ body {
 
 .grid-container {
     margin: 0 auto;
-    gap: 0.5fr;
+    /* gap: 0.5fr; */
     width: 55vw;
 }
 
@@ -124,14 +125,13 @@ body {
     margin: 0 auto;
     grid-template-columns: 33% auto;
     grid-template-rows: 1fr;
-    gap: 0.5fr;
 }
 
 .mlanding {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 0.5fr;
+    /* gap: 0.5fr; */
     grid-row: 1 / span 1;
 }
 
@@ -144,7 +144,7 @@ body {
 .widgets {
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
-    margin: 0.4em;
+    margin: 0.3em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -201,6 +201,7 @@ body {
     border-color: black;
     border-radius: 0.5em;
     border-style: solid;
+    margin: 0.3em;
 }
 
 .prev h4,
@@ -347,8 +348,31 @@ li {
     }
 
     .landing {
-        grid-template-columns: auto;
+        grid-template-columns: 1fr;
         grid-template-rows: 1fr;
+    }
+
+    .mlanding {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        /* gap: 0.5fr; */
+    }
+
+    .query0 {
+        grid-column: 1/span 1;
+        grid-row: 1/span 1;
+    }
+
+    .prev {
+        grid-column: 1/span 1;
+        grid-row: 2/ span 3;
+
+    }
+
+    .future {
+        grid-column: 1/span 1;
+        grid-row: 3;
+
     }
 
     .widgets {
