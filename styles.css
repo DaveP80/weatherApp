@@ -5,7 +5,7 @@ body {
     font-family: 'Slabo 27px', serif;
     overflow-x: visible;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
     margin: 0.4em;
 }
 
@@ -64,7 +64,7 @@ body {
     background: #61a3d9;
     color: white;
     box-shadow: 0px 0px 8px 2px #000000;
-    border: 0.2em solid #000;
+    border: thin solid #000;
     border-radius: .5em;
     white-space: nowrap;
     overflow: hidden;
