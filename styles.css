@@ -5,14 +5,17 @@ body {
     font-family: 'Slabo 27px', serif;
     overflow-x: visible;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     margin: 0.4em;
+    align-items: center;
 }
 
 .header {
     margin: 0 auto;
+    grid-row: 1/ span 1;
     display: grid;
-    width: 55vw;
+    width: 60%;
     height: auto;
     padding: 1em;
     overflow: hidden;
@@ -33,6 +36,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .watitle {
@@ -40,6 +44,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .userinput {
@@ -104,14 +109,12 @@ body {
 
 .grid-container {
     margin: 0 auto;
-    /* gap: 0.5fr; */
-    width: 55vw;
+    width: 55%;
 }
 
 .landing0 {
     display: grid;
     grid-template-columns: 65% 35%;
-    /* width: 100%; */
 }
 
 .tempresult {
@@ -119,7 +122,8 @@ body {
 }
 
 .landing {
-    width: 56vw;
+    width: 60%;
+    grid-row: 2/ span 1;
     display: none;
     margin: 0 auto;
     grid-template-columns: 33% auto;
@@ -129,9 +133,9 @@ body {
 .mlanding {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    /* gap: 0.5fr; */
+    grid-template-rows: auto auto;
     grid-row: 1 / span 1;
+    grid-column: 2/ span 1;
 }
 
 .query0:hover,
@@ -141,8 +145,8 @@ body {
 }
 
 .widgets {
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 1;
+    grid-row: 1;
+    grid-column: 1;
     margin: 0.3em;
     display: flex;
     flex-direction: column;
@@ -222,6 +226,7 @@ body {
     border-color: black;
     border-radius: 0.5em;
     border-style: solid;
+    word-wrap: break-word;
 }
 
 .today {
@@ -282,11 +287,11 @@ li {
 
     .grid-container,
     .landing {
-        width: 100vw;
+        width: 95%;
     }
 
     .header {
-        width: 100vw;
+        width: 95%;
         height: auto;
     }
 }
@@ -310,9 +315,17 @@ li {
     .btn1 {
         font-size: smaller;
     }
+   
+    .grid-container {
+        width: 95%;
+    }
 
-    header {
-        max-width: 100%;
+    .landing0 {
+        width: 100%;
+    }
+
+    .header {
+        width: 90%;
     }
 
     .header,
@@ -325,6 +338,12 @@ li {
     .tomorrow,
     .tomorrow2 {
         border-width: thin;
+    }
+
+    .prev0,
+    .query1 {
+        height: fit-content;
+        margin: 0.2em;
     }
 }
 
@@ -353,12 +372,14 @@ li {
     .landing {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
+        width: 100%;
     }
 
     .mlanding {
+        grid-column: 1/ span 1;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, auto);
-        /* gap: 0.5fr; */
+        width: 100%;
     }
 
     .query0 {
