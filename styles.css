@@ -13,7 +13,7 @@ body {
     margin: 0 auto;
     display: grid;
     width: 55vw;
-    height: 20vw;
+    height: auto;
     padding: 1em;
     overflow: hidden;
     border-style: solid;
@@ -21,7 +21,7 @@ body {
     border-radius: 0.5em;
     background-color: aquamarine;
     border-color: rgb(26, 42, 40);
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
     grid-template-areas:
         "watitle newsTicker newsTicker"
@@ -48,7 +48,7 @@ body {
     display: block;
     margin: 0 auto;
     width: 80%;
-    height: 100%;
+    height: auto;
 }
 
 .ntcont {
@@ -73,8 +73,7 @@ body {
 
 .emojis {
     font-size: 1.875em;
-    overflow: hidden;
-    margin-top: -10%;
+    margin: 0 auto;
 }
 
 .uinput {
@@ -112,7 +111,7 @@ body {
 .landing0 {
     display: grid;
     grid-template-columns: 65% 35%;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .tempresult {
@@ -288,7 +287,7 @@ li {
 
     .header {
         width: 100vw;
-        height: 40vw;
+        height: auto;
     }
 }
 
@@ -310,6 +309,10 @@ li {
 
     .btn1 {
         font-size: smaller;
+    }
+
+    header {
+        max-width: 100%;
     }
 
     .header,
@@ -396,8 +399,5 @@ li {
     .userinput {
         display: block;
         margin: 0 auto;
-        width: 85%;
-        height: auto;
-        overflow: hidden;
     }
 }
