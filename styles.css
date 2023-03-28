@@ -149,7 +149,7 @@ body {
     margin: 0.3em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: max-content;
     padding: 1em;
@@ -159,6 +159,17 @@ body {
     border-style: solid;
     border-radius: 0.5em;
 }
+
+.widgets textarea {
+    width: 100%;
+    height: auto; 
+    box-sizing: border-box; 
+}
+
+.widgets button {
+    width: 60%;
+    height: auto;
+  }
 
 .query0 {
     grid-row: 1/ 2;
