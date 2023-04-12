@@ -22,17 +22,17 @@ function removeDuplicateTextItems() {
     var itemsArray = Array.prototype.slice.call(items);
     var uniqueItemsArray = [];
     let bool;
-  
-    itemsArray.forEach(function(item) {
-      if(uniqueItemsArray.indexOf(item.innerHTML) === -1) {
-        uniqueItemsArray.push(item.innerHTML);
-      } else {
-        aj.removeChild(item);
-        bool = 'removed'
-      }
+
+    itemsArray.forEach(function (item) {
+        if (uniqueItemsArray.indexOf(item.innerHTML) === -1) {
+            uniqueItemsArray.push(item.innerHTML);
+        } else {
+            aj.removeChild(item);
+            bool = 'removed'
+        }
     });
     return bool;
-  }
+}
 
 //store good user searches
 let searchquery = {}
@@ -55,19 +55,6 @@ let addCopyP = () => {
     iconp.style = 'margin-bottom: 0.2em'
     iconp.classList.add('fa', 'fa-copy')
     iconp.onclick = copyDivContents
-    addicon.appendChild(iconp)
-}
-
-let addCopyT = (args) => {
-    let addicon = document.querySelector(".ajson")
-    let iconp = document.createElement('button')
-    iconp.textContent = 'Copy Info'
-    iconp.style = 'margin-bottom: 0.2em'
-    iconp.addEventListener('click', () => {
-    let divContent = document.querySelector(".ajson #" + args)
-    divContent.select()
-    document.execCommand('copy')
-    })
     addicon.appendChild(iconp)
 }
 
@@ -109,13 +96,17 @@ hform.addEventListener('submit', (event) => {
             //make json copy and paste info area, without duplicates
             Object.keys(searchquery).forEach(item => {
                 if (item == res['nearest_area'][0]['areaName'][0]['value']) {
-                let ndetail = document.querySelector('.ajson')
-                let ndetail2 = document.createElement('textarea')
-                ndetail2.textContent = JSON.stringify(searchquery[item])
-                ndetail2.id = item
-                ndetail.appendChild(ndetail2)
-                let checkt = removeDuplicateTextItems()
-                if (checkt!=='removed') addCopyT(item)
+                    let ndetail = document.querySelector('.ajson')
+                    let ndetail2 = document.createElement('textarea')
+                    let trimmed = item.replaceAll(' ', '')
+                    ndetail2.textContent = JSON.stringify(searchquery[item])
+                    ndetail2.id = trimmed
+                    ndetail.appendChild(ndetail2)
+                    removeDuplicateTextItems()
+                    ndetail2.addEventListener('click', () => {
+                        ndetail2.select()
+                        document.execCommand('copy')
+                    })
                 }
             })
 

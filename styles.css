@@ -94,6 +94,15 @@ body {
     margin-top: 1em;
 }
 
+.ajson {
+    display: flex;
+    flex-direction: column;
+}
+
+.ajson textarea {
+    margin-bottom: 1em;
+}
+
 #temp-to-convert,
 .uinput {
     width: 85%;
